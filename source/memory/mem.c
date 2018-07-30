@@ -11,7 +11,6 @@ void memory_barrier()
 void memory_write_u32(u32 address, u32 data)
 {
      u32* tmp = (u32*) address;
-
      *tmp = data;
 }
 
@@ -19,6 +18,18 @@ void memory_write_u32(u32 address, u32 data)
 u32 memory_read_u32(u32 address)
 {
      u32* tmp = (u32*) address;
-     
      return (u32) *tmp;
+}
+
+u32 address_to_bus(u32 address)
+{
+	return (u32)(address + GPU_OFFSET);
+}
+
+u32 address_to_arm(u32 address)
+{
+	if(address > GPU_OFFSET)
+		return (u32)(address - GPU_OFFSET);
+
+	return (u32)(address);
 }

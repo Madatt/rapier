@@ -1,4 +1,3 @@
-#include "bootinfo.h"
 #include "atags.h"
 #include "../misc/blink.h"
 
@@ -7,6 +6,11 @@
 #define ATAG_CORE 0x54410001
 #define ATAG_MEM 0x54410002
 #define ATAG_NONE 0x00000000
+
+u32 atags_ram_size;
+u32 atags_ram_start;
+u8 atags_ok;
+
 
 u8 atags_init()
 {
@@ -53,6 +57,6 @@ u8 atags_init()
 
 
      }
-     
+
      return 1;
 }

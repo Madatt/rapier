@@ -5,6 +5,7 @@ SET tt2= -ffreestanding -nostdlib -fno-builtin  -fno-exceptions -nostartfiles -O
 
 echo Compiling *.s
 "compiler/bin/arm-none-eabi-as.exe" "source/boot/entry.s" -o "bin/entry.o"
+"compiler/bin/arm-none-eabi-as.exe" "source/memory/mmu.s" -o "bin/mmu_s.o"
 echo.
 
 echo Compiling *.c
@@ -14,6 +15,8 @@ echo Compiling *.c
 "compiler/bin/arm-none-eabi-gcc.exe" %tt1% -c "source/memory/mem.c" -o "bin/mem.o" %tt2%
 "compiler/bin/arm-none-eabi-gcc.exe" %tt1% -c "source/graphics/mailbox.c" -o "bin/mailbox.o" %tt2%
 "compiler/bin/arm-none-eabi-gcc.exe" %tt1% -c "source/graphics/framebuffer.c" -o "bin/framebuffer.o" %tt2%
+"compiler/bin/arm-none-eabi-gcc.exe" %tt1% -c "source/graphics/draw.c" -o "bin/draw.o" %tt2%
+"compiler/bin/arm-none-eabi-gcc.exe" %tt1% -c "source/memory/mmu.c" -o "bin/mmu.o" %tt2%
 echo.
 
 echo Linking...
@@ -25,6 +28,9 @@ echo Linking...
  "bin/mem.o"^
  "bin/mailbox.o"^
  "bin/framebuffer.o"^
+ "bin/draw.o"^
+ "bin/mmu.o"^
+ "bin/mmu_s.o"^
  -o "bin/kernel.elf"
 echo.
 

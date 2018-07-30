@@ -12,4 +12,7 @@ extern void memory_barrier();
 
 extern void memory_write_u32(u32 address, u32 data);
 extern u32 memory_read_u32(u32 address);
+
+extern u32 address_to_bus(u32 address);
+extern u32 address_to_arm(u32 address);
 #endif

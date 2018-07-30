@@ -18,8 +18,14 @@ typedef struct
 
 }framebuffer_t;
 
-extern framebuffer_t frbf __attribute__((aligned (16)));
-extern void framebuffer_init(u32 width, u32 height);
+extern u32 doublebuffering;
+extern u32 framebuffer_switch;
+
+extern framebuffer_t framebuffer  __attribute__((aligned (16)));
+
+extern void gpu_init(u32 width, u32 height, u32 doubleb);
+extern void framebuffer_swap();
+extern void framebuffer_init();
 
 
 #endif
