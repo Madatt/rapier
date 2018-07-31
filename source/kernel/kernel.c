@@ -11,8 +11,8 @@ void kernel_entry()
      atags_init();
      gpu_init(1920, 1080, 0);
 
+     
      mmu_map_section(0x00000000, 0x00000000, 0, 0, 3, 0);
-     mmu_map_section(0x20000000, 0x20000000, 0, 0, 3, 0);
      mmu_map_section(0x20000000, 0x20000000, 0, 0, 3, 0);
      mmu_map_section(0x40000000, 0x40000000, 0, 0, 3, 0);
 
