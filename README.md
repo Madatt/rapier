@@ -12,7 +12,7 @@ An OS for Raspberry Pi Zero (And 2 in the future).
 + ATAGs parse
 
 # TO DO:
-+ Memory managment
++ Memory management:
     + Dividing memory into blocks
     + Block allocation/deallocation
     + Multiple MMU tables for different processes
