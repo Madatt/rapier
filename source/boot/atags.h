@@ -3,9 +3,15 @@
 
 #include "../misc/types.h"
 
-extern u32 atags_ram_size;
-extern u32 atags_ram_start;
+
+typedef struct
+{
+     u32 size;
+     u32 start;
+}atag_mem_t;
+
 extern u8 atags_ok;
+extern atag_mem_t atag_mem;
 
 u8 atags_init();
 

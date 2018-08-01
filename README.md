@@ -10,6 +10,9 @@ An OS for Raspberry Pi Zero (And 2 in the future).
     + Drawing to framebuffer
     + Basic font
 + ATAGs parse
++ Misc library:
+     + atoi()
+     + hexstring()  
 
 # TO DO:
 + Memory management:

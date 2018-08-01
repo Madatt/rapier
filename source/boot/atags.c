@@ -1,5 +1,4 @@
 #include "atags.h"
-#include "../misc/blink.h"
 
 #define ATAGS_START 0x100
 
@@ -7,8 +6,7 @@
 #define ATAG_MEM 0x54410002
 #define ATAG_NONE 0x00000000
 
-u32 atags_ram_size;
-u32 atags_ram_start;
+atag_mem_t atag_mem;
 u8 atags_ok;
 
 
@@ -17,7 +15,6 @@ u8 atags_init()
      u32* first_size = (u32*) ATAGS_START;
      u32* first_value = (u32*) (ATAGS_START+0x4);
 
-     atags_ram_size = 0;
 
      if(*first_size != 5 && *first_value != ATAG_CORE)
      {
@@ -43,10 +40,10 @@ u8 atags_init()
 
                case ATAG_MEM:
                     current += 0x1;
-                    atags_ram_size=*current;
+                    atag_mem.size=*current;
 
                     current += 0x1;
-                    atags_ram_start=*current;
+                    atag_mem.start=*current;
 
                     current += 0x1;
                break;

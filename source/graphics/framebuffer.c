@@ -1,7 +1,6 @@
 #include "framebuffer.h"
 #include "mailbox.h"
 #include "../memory/mem.h"
-#include "../misc/blink.h"
 
 u32 doublebuffering;
 u32 framebuffer_switch;

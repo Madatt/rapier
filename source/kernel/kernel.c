@@ -3,7 +3,8 @@
 #include "../memory/mmu.h"
 #include "../graphics/draw.h"
 #include "../graphics/framebuffer.h"
-#include "../misc/blink.h"
+#include "../misc/lib.h"
+
 
 
 void kernel_entry()
@@ -17,7 +18,10 @@ void kernel_entry()
      u32 tmp = ((u32)(framebuffer.address)) & 0xFFF00000;
      mmu_map_section(tmp, tmp, 0, 0, 3, 0);
 
+     char test[16];
+     hexstring(atag_mem.size,test);
+
      mmu_init((u32)&mmu_table);
 
-     draw_text(32, 32, 0xFFFFFF, "To jest test");
+     draw_text(32, 32, 0xFFFFFF, test);
 }
