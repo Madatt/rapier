@@ -3,7 +3,6 @@
 #include "../memory/mmu.h"
 #include "../graphics/draw.h"
 #include "../graphics/framebuffer.h"
-#include "../graphics/font.h"
 #include "../misc/blink.h"
 
 
@@ -20,17 +19,5 @@ void kernel_entry()
 
      mmu_init((u32)&mmu_table);
 
-
-     for(u32 i = 0; i < 95; i++)
-     {
-          for(u32 j = 0; j < 13; j++)
-          {
-               for(u8 h = 0; h < 0xff; h++)
-               {
-                    u8 ps = (font[i][j] & ( 1 << h )) >> h;
-                    if(ps)
-                         draw_pixel(i*8+(7-h), 12-j, 0xFFFF00);
-               }
-          }
-     }
+     draw_text(32, 32, 0xFFFFFF, "To jest test");
 }
