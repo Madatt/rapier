@@ -27,14 +27,26 @@ void kernel_entry()
 
      char test[16];
 
-     u32 ad = (u32)memory_allocate(12);
-
-     hexstring(ad,test);
-     draw_text(32,32, 0xFFFFFF, test);
+     u32* ad = memory_allocate(4);
+     u32* ad2 = memory_allocate(4);
+     memory_free(ad);
+     u32* ad3 = memory_allocate(3);
 
      hexstring(sizeof(memory_block_t),test);
+     draw_text(32,32, 0xFFFFFF, test);
+
+     hexstring((u32)(ad),test);
      draw_text(32,52, 0xFFFFFF, test);
 
-     hexstring((u32)(memory_block_f->next),test);
+     hexstring((u32)(ad2),test);
      draw_text(32,72, 0xFFFFFF, test);
+
+     hexstring((u32)(ad3),test);
+     draw_text(32,92, 0xFFFFFF, test);
+
+     hexstring((u32)(memory_block_f),test);
+     draw_text(32,112, 0xFFFFFF, test);
+
+     hexstring((u32)(memory_block_f->next),test);
+     draw_text(32,132, 0xFFFFFF, test);
 }

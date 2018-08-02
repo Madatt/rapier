@@ -23,14 +23,14 @@ void memory_init()
      memory_last_free = memory_block_f;
 }
 
-void* memory_allocate(u8 bytes)
+void* memory_allocate(u32 bytes)
 {
      memory_block_t* now = (memory_block_t*) memory_start;
-     u8 hs = sizeof(memory_block_t);
+     u32 hs = sizeof(memory_block_t);
 
      while(1)
      {
-          if(now->free == 1 && now->size != -1 && now->size >= hs+bytes)
+          if(now->free == 1 && now->last == 0 && now->size >= bytes)
           {
                u32 olds = now->size;
                u8 oldl = now->last;
@@ -39,9 +39,9 @@ void* memory_allocate(u8 bytes)
                now->free = 0;
                now->size = bytes;
                now->next = (memory_block_t*)(hs+bytes+(u32)now);
-               if(olds-hs+bytes > hs)
+               if(olds-bytes > hs)
                {
-                    now->next->free = 0;
+                    now->next->free = 1;
                     now->next->size = olds-hs-bytes-hs;
                     now->next->next = oldn;
                }
@@ -51,9 +51,9 @@ void* memory_allocate(u8 bytes)
                }
                return (void*) ((u32)now+hs);
           }
-          else if(now->free == 1 && now->size == 0 && now->last == 1)
+          else if(now->free == 1 && now->last == 1)
           {
-               if(memory_end - (u32)now+hs > hs+bytes)
+               if(memory_end - (u32)now - hs > bytes+hs)
                {
                     now->free = 0;
                     now->size = bytes;
@@ -80,8 +80,7 @@ void* memory_allocate(u8 bytes)
 
 void memory_free(void* address)
 {
-     memory_block_t* now = (memory_block_t*) address;
-     u8 hs = sizeof(memory_block_t);
-
+     u32 hs = sizeof(memory_block_t);
+     memory_block_t* now = (void*)((u32)address-hs);
      now->free = 1;
 }

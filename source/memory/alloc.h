@@ -21,7 +21,7 @@ extern memory_block_t* memory_last_free;
 
 
 extern void memory_init();
-extern void* memory_allocate(u8 bytes);
+extern void* memory_allocate(u32 bytes);
 extern void memory_free(void* address);
 
 
