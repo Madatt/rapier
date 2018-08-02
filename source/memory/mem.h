@@ -5,7 +5,7 @@
 
 #define GPU_OFFSET 0x40000000
 
-extern char _end;
+extern void* _end;
 extern void movr4 (u32);
 
 extern void memory_barrier();

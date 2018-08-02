@@ -16,6 +16,7 @@ echo Compiling *.c
 "compiler2/bin/arm-none-eabi-gcc.exe" %tt1% -c "source/graphics/framebuffer.c" -o "bin/framebuffer.o" %tt2%
 "compiler2/bin/arm-none-eabi-gcc.exe" %tt1% -c "source/graphics/draw.c" -o "bin/draw.o" %tt2%
 "compiler2/bin/arm-none-eabi-gcc.exe" %tt1% -c "source/memory/mmu.c" -o "bin/mmu.o" %tt2%
+"compiler2/bin/arm-none-eabi-gcc.exe" %tt1% -c "source/memory/alloc.c" -o "bin/alloc.o" %tt2%
 "compiler2/bin/arm-none-eabi-gcc.exe" %tt1% -c "source/misc/lib.c" -o "bin/lib.o" %tt2%
 echo.
 
@@ -31,6 +32,7 @@ echo Linking...
  "bin/mmu.o"^
  "bin/mmu_s.o"^
  "bin/lib.o"^
+ "bin/alloc.o"^
  -o "bin/kernel.elf"
 echo.
 
