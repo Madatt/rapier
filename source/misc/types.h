@@ -2,6 +2,7 @@
 #define TYPES_H
 
 typedef unsigned int u32;
+typedef signed int s32;
 typedef unsigned short u16;
 typedef unsigned char u8;
 

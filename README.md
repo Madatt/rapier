@@ -13,12 +13,10 @@ An OS for Raspberry Pi Zero (And 2 in the future).
 + Misc library:
      + atoi()
      + hexstring()  
++ Memory management:
+     + Allocating/deallocating 
 
 # TO DO:
-+ Memory management:
-    + Dividing memory into blocks
-    + Block allocation/deallocation
-    + Multiple MMU tables for different processes
 + Actual console for input/output
 + Threading and interrupts
 + Some kind of filesystem support
