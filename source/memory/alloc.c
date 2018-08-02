@@ -76,5 +76,12 @@ void* memory_allocate(u8 bytes)
                now = now->next;
           }
      }
+}
 
+void memory_free(void* address)
+{
+     memory_block_t* now = (memory_block_t*) address;
+     u8 hs = sizeof(memory_block_t);
+
+     now->free = 1;
 }

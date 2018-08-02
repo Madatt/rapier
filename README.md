@@ -14,7 +14,7 @@ An OS for Raspberry Pi Zero (And 2 in the future).
      + atoi()
      + hexstring()  
 + Memory management:
-     + Allocating/deallocating 
+     + Allocating/deallocating
 
 # TO DO:
 + Actual console for input/output
