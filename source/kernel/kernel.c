@@ -18,5 +18,10 @@ void kernel_entry()
 
      framebuffer_init(1280, 720);
 
+     mmu_kernel_map_all();
+     u32 tmp = ((u32)(framebuffer.address)) & 0xFFF00000;
+     mmu_kernel_map_section(tmp, tmp, 0, 0, 3, 0);
+     mmu_init((u32)&mmu_kernel_table);
+
      draw_text(32, 32, 0xFFFFFF, "Test 123 !@#$");
 }
