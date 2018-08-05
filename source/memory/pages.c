@@ -4,7 +4,7 @@
 
 page_t* pages;
 
-void memory_init_pages()
+void memory_pages_init()
 {
      pages = (page_t*)(heap_start+heap_size);
 
@@ -26,7 +26,7 @@ void memory_init_pages()
 
 }
 
-void* memory_allocate_page()
+void* memory_page_allocate()
 {
      u32 n = atag_mem.size/4096;
 
@@ -42,7 +42,7 @@ void* memory_allocate_page()
      return (void*) 0;
 }
 
-void memory_free_page(void* address)
+void memory_page_free(void* address)
 {
      u32 i = (u32)address/4096;
 

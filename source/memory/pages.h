@@ -12,9 +12,9 @@ typedef struct
 
 extern page_t* pages;
 
-extern void memory_init_pages();
-extern void* memory_allocate_page();
-extern void memory_free_page(void* address);
+extern void memory_pages_init();
+extern void* memory_page_allocate();
+extern void memory_page_free(void* address);
 
 
 

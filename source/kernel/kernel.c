@@ -12,4 +12,11 @@
 void kernel_entry()
 {
      atags_init();
+
+     memory_heap_init();
+     memory_pages_init();
+
+     framebuffer_init(1280, 720);
+
+     draw_text(32, 32, 0xFFFFFF, "Test 123 !@#$");
 }
