@@ -32,9 +32,9 @@ void* memory_page_allocate()
 
      for(u32 i = 0; i < n; i++)
      {
-          if(pages[i].free == 0)
+          if(pages[i].free == 1)
           {
-               pages[i].free = 1;
+               pages[i].free = 0;
                return (void*) (i*4096);
           }
      }
@@ -46,5 +46,5 @@ void memory_page_free(void* address)
 {
      u32 i = (u32)address/4096;
 
-     pages[i].free = 0;
+     pages[i].free = 1;
 }
