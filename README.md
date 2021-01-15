@@ -1,6 +1,6 @@
 # Rapier
 
-An OS for Raspberry Pi Zero (And 2 in the future).
+Basic kernel for Raspberry Pi Zero (And 2 in the future).
 
 # Features:
 + Basic MMU support
