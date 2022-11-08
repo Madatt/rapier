@@ -1,6 +1,7 @@
 # Rapier
 
-Basic kernel for Raspberry Pi Zero (And 2 in the future). Old version.
+Basic kernel for Raspberry Pi Zero (And 2 in the future) when I was learning baremetal. Old version. 
+
 
 # Features:
 + Basic MMU support
